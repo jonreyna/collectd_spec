@@ -3,14 +3,14 @@
 % ------------------------------------  --> cover title page
 \begin{titlepage}
 	\pdfbookmark[0]{Cover}{Cover}
-	\centering
+	\flushright
 	\hfill
 	\vfill
-	{\LARGE\reqTitle\par}
+	{\LARGE\specTitle\par}
 	\rule[5pt]{\textwidth}{.4pt} \par
-	{\reqName}
+	\Large\firstAuthorName\\\secondAuthorName{}
 	\vfill
-	\large\reqDate\\
+	\textit{\large\reqDate}\\
 	Version: \reqSpecVersion{}
 \end{titlepage}
 
@@ -28,8 +28,8 @@
 
 	\vfill
 	{\large \reqSubject} \\[5mm]
-	{\LARGE \color{ctcolortitle}\textbf{\reqTitle} \\[10mm]}
-	{\Large \reqName} \\
+	{\LARGE \color{ctcolortitle}\textbf{\specTitle} \\[10mm]}
+	{\specAuthorsFullTitles} \\
 
 	\vfill
 	\begin{minipage}[t]{.27\textwidth}
@@ -40,7 +40,6 @@
 	\begin{minipage}[t]{.65\textwidth}
 		{\Large \firstReviewer} \\
 		{\small \firstReviewerTitle} \\[-1mm]
-		{\small \firstReviewerDepartment} \\[-1mm]
 		{\small \firstReviewerCompany}
 	\end{minipage} \\[5mm]
 	\begin{minipage}[t]{.27\textwidth}
@@ -51,7 +50,6 @@
 	\begin{minipage}[t]{.65\textwidth}
 		{\Large \secondReviewer} \\
 		{\small \secondReviewerTitle} \\[-1mm]
-		{\small \secondReviewerDepartment} \\[-1mm]
 		{\small \secondReviewerCompany}
 	\end{minipage} \\[10mm]
 	\begin{minipage}[t]{.27\textwidth}
@@ -72,14 +70,13 @@
 \hfill
 \vfill
 {\small
-	\textbf{\reqName} \\
-	\textit{\reqTitle} \\
+	\textbf{\firstAuthorName{} \& \secondAuthorName}\\
+	\textit{\specTitle}\\
 	\reqSubject, \reqDate\\
 	Reviewers: \firstReviewer\ and \secondReviewer\\
 	Supervisors: \firstSupervisor\ and \secondSupervisor\\[1.5em]
 	\textbf{\clientCompany} \\
-	\textit{\clientCompanyGroup} \\
-	\clientCompanyDepartment\\
+	\textit{\clientCompanyGroup, \clientCompanyDepartment}\\
 	\clientCompanyStreetAddress\\
-	\clientCompanyPostalCode\ and \clientCompanyCity{}
+	\clientCompanyCity, \clientCompanyState{} \clientCompanyPostalCode{}
 }

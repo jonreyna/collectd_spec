@@ -24,7 +24,27 @@
 % **************************************************
 % Information and Commands for Reuse
 % **************************************************
-\newcommand{\reqTitle}{Collectd Requirements Specification}
+\newcommand{\specTitle}{Collectd Architecture}
+
+\newcommand{\firstAuthorName}{Jonathan Reyna}
+\newcommand{\firstAuthorTitle}{Resident Consultant}
+\newcommand{\firstAuthorDepartment}{Advanced Services}
+\newcommand{\firstAuthorCompany}{Juniper Networks, Inc.}
+
+\newcommand{\secondAuthorName}{Shane Coury}
+\newcommand{\secondAuthorTitle}{Operations Manager}
+\newcommand{\secondAuthorDepartment}{Network Engineering}
+\newcommand{\secondAuthorCompany}{Wide Open West, Inc.}
+
+\newcommand{\specAuthorsFullTitles}{%
+	\Large{\firstAuthorName}\\
+	\small{\firstAuthorTitle}\\[-1mm]
+	\small{\firstAuthorCompany}\\
+	\Large{\secondAuthorName}\\
+	\small{\secondAuthorTitle}\\[-1mm]
+	\small{\secondAuthorCompany}
+}
+
 \newcommand{\reqName}{\Large{Jonathan Reyna} \\
 	\small{Resident Consultant}\\[-1mm]
 	\small{Juniper Networks, Inc.}\\
@@ -33,7 +53,7 @@
 	\small{Wide Open West, Inc.}
 }
 
-\newcommand{\reqSubject}{Application Development}
+\newcommand{\reqSubject}{Application Requirements \& Design}
 \newcommand{\reqDate}{\today}
 \newcommand{\reqSpecVersion}{0.1}
 
@@ -51,10 +71,12 @@
 \newcommand{\secondSupervisor}{Paul Dietl}
 
 \newcommand{\clientCompany}{\protect{Wide Open West, Inc.}}
+\newcommand{\clientCompanyShortName}{\textffmw{WOW!}}
 \newcommand{\clientCompanyDepartment}{Operations}
 \newcommand{\clientCompanyGroup}{Network Engineering}
-\newcommand{\clientCompanyCity}{Alpharetta}
 \newcommand{\clientCompanyStreetAddress}{11675 Rainwater Drive}
+\newcommand{\clientCompanyCity}{Alpharetta}
+\newcommand{\clientCompanyState}{Georgia}
 \newcommand{\clientCompanyPostalCode}{30009}
 
 % **************************************************
@@ -75,10 +97,12 @@
 	bibstyle=alphabetic,		%
 ]{cleanthesis}
 \usepackage{enumerate}
+\usepackage{fetamont}
+\usepackage[T1]{fontenc}
 					% setup the hyperref-package options
-\hypersetup{pdftitle={\reqTitle},	% - title (PDF meta)
+\hypersetup{pdftitle={\specTitle},	% - title (PDF meta)
 	pdfsubject={\reqSubject},	% - subject (PDF meta)
-	pdfauthor={\reqName},		% - author (PDF meta)
+	pdfauthor={\firstAuthorName},	% - author (PDF meta)
 	plainpages=false,		% -
 	colorlinks=false,		% - colorize links?
 	pdfborder={0 0 0},		% -
