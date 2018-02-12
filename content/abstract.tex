@@ -1,48 +1,18 @@
 % !TEX root = ../main.tex
 %
-\pdfbookmark[0]{Abstract}{Abstract}
-\chapter*{Abstract}
-\label{sec:abstract}
-\vspace*{-10mm}
+\pdfbookmark[0]{Abstract}{Abstract}\chapter*{Abstract}\label{sec:abstract}\vspace*{-10mm}
+Conventional network automation projects are typically built using an isolated
+development lifecycle. In part, that isolation is desireable to free new 
+implementations from the design limitations of other projects. However, that 
+flexibility comes at a cost: effort duplication.
 
-Network automation projects are typically small to medium sized projects
-that answer a question about the operational state of the network. Projects 
-are developed independently, with an isolated lifecycle.
-In part, the isolation is desireable, because it allows maximum 
-flexibility in the implementation. Developers aren't constrained
-by design limitations of previous projects, and can make the best descisions for
-the project at hand. That flexibility, however, comes at a cost: effort duplication. 
+Effort duplication is clearly salient in data collection code required by most 
+applications. Isolated development lifecycles make sharing data with other
+applications an afterthought. As a result, new projects inevitably duplicate 
+data, compute, maintenance, and programming efforts. 
 
-Effort duplication is most noticible in the data collection code required 
-by most network automation tools. Since projects are deveoped in isolation, 
-sharing data with other applications is an afterthought. Code, data,
-compute, maintenance, and programming effort is often duplicated. There are at least
-two approaches to remedy these inefficiencies. 
-
-The first enforces strict rules on the development lifecycle. New rules
-would require every project to consider every other project in its design phase. 
-The flexibility of an isolated project is sacrified for global design consistency.
-At best, project design complexity would increase on a linear scale, and 
-exponentially in the worst case.
-
-A more practical approach would adapt an architectural pattern to the to the 
-existing development lifecycle. The pattern would eliminate duplication
-efforts by consolidating homogenous logic to make the results available to
-client applications. Collectd is an instance of this pattern. 
-
-Collectd is responsible for collecting, storing, relating, and providing data retrieved 
-from network devices to client applications. It consolidates all data 
-collection logic, alleviating client applications of that responsibility.
-When a tool needs data, it simply requests it from collectd. 
-
-Collectd has numerous advantages over an isolated project's data collection approach. 
-Client applications no longer need collection code, making them easier to reason
-about, and faster to enhance, maintain, test, and document. Collection code will
-be more stable and robust, because writing collection code will be concentrated,
-instead of duplicated. Without the inefficiencies of a strict lifecycle approach, 
-applications will maintain maximum flexibility to satisfy business requirements.
-There will be fine grained control over SSH sessions to devices. Collectd will
-have a global perspective of collected data from all applications, and the 
-relationships between that data, which offers unique potential to answer 
-questions that have not yet been considered, or were thought impractical to 
-answer.
+This paper outlines a way to eliminate effort duplication by adapting a 
+well-established architectural pattern to the to the existing development 
+lifecycle. The pattern works by consolidating homogenous logic into processes 
+that make their data available to client applications. Collectd is an instance 
+of this pattern. 

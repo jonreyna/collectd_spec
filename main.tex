@@ -31,26 +31,9 @@
 \newcommand{\firstAuthorDepartment}{Advanced Services}
 \newcommand{\firstAuthorCompany}{Juniper Networks, Inc.}
 
-\newcommand{\secondAuthorName}{Shane Coury}
-\newcommand{\secondAuthorTitle}{Operations Manager}
-\newcommand{\secondAuthorDepartment}{Network Engineering}
-\newcommand{\secondAuthorCompany}{Wide Open West, Inc.}
-
-\newcommand{\specAuthorsFullTitles}{%
-	\Large{\firstAuthorName}\\
-	\small{\firstAuthorTitle}\\[-1mm]
-	\small{\firstAuthorCompany}\\
-	\Large{\secondAuthorName}\\
-	\small{\secondAuthorTitle}\\[-1mm]
-	\small{\secondAuthorCompany}
-}
-
 \newcommand{\reqName}{\Large{Jonathan Reyna} \\
 	\small{Resident Consultant}\\[-1mm]
 	\small{Juniper Networks, Inc.}\\
-	\Large{Shane Coury} \\
-	\small{Network Engineering Operations Manager} \\[-1mm]
-	\small{Wide Open West, Inc.}
 }
 
 \newcommand{\reqSubject}{Application Requirements \& Design}
@@ -96,9 +79,11 @@
 	bibfile=bib-refs,		%
 	bibstyle=alphabetic,		%
 ]{cleanthesis}
-\usepackage{enumerate}
 \usepackage{fetamont}
 \usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{float}
 					% setup the hyperref-package options
 \hypersetup{pdftitle={\specTitle},	% - title (PDF meta)
 	pdfsubject={\reqSubject},	% - subject (PDF meta)

@@ -1,12 +1,53 @@
 % !TEX root = ../main.tex
 %
-\chapter{Introduction}
-\label{sec:intro}
+\chapter{Introduction}\label{sec:intro}
 
-\cleanchapterquote{You can’t do better design with a computer, but you can speed up your work enormously.}{Wim Crouwel}{(Graphic designer and typographer)}
+\cleanchapterquote{The art of programming is the art of organizing complexity,
+of mastering multitude and avoiding its bastard chaos as effectively as 
+possible}{E. W. Dijkstra}{(Computer Science Pioneer)}
 
-\Blindtext[2][2]
+Modern network automation is generally achieved using a group of small to medium
+sized software programs developed in isolation of each other. Dispite their isolation,
+most programs have the same general flow of logic. Almost every network automation
+tool can be described on a high level with these simple steps.
+\begin{figure}[h]
+\begin{minipage}{.5\textwidth}
+	\begin{enumerate}
+		\item Get the data from devices that contains the answer to a 
+			question of interest. The answer, at least in part, 
+			satisfies a business requirement.
+		\item Take steps to convert the raw data into information. 
+			Common steps used to convert the data include the 
+			following:
+			\begin{itemize}[noitemsep]
+				\item Isolate specific data points of interest.
+				\item Convert data points to strong types for 
+					safe comparison operations.
+				\item Compare parsed data with other gathered 
+					data or constant values to answer a 
+					question of interest.
+			\end{itemize}
+		\item Perform some action based on the answer to the question 
+			of interest. Common actions include the following:
+			\begin{itemize}[noitemsep]
+				\item Update a webpage.
+				\item Send an email.
+				\item Configure a device.
+			\end{itemize}
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=\textwidth]{gfx/general_tool_logic_flow}
+\end{minipage}
+\end{figure}
 
+The inventory tool has logic that is easy to understand, and can serve as a 
+concrete example of the logic flow above. During step 1, the inventory tool
+uses NETCONF over SSH to run the show chassis hardware detail command, which
+provides the inventory data required. Step 2 is achieved by storing the inventory
+data in a relational database. Finally, in step 3, the tool answers user queries 
+A quick analysis of the inventory tool can 
+A concrete example can serve to illustrate the above logic flow.
 \section{Postcards: My Address}
 \label{sec:intro:address}
 
@@ -19,6 +60,57 @@ Germany
 \section{Motivation and Problem Statement}
 \label{sec:intro:motivation}
 
+blah blah blah
+In light of the first two steps in the general flow of logic, one only needs a
+trivial example to show how this and that each 
+project is developed in isolation, it's easy to see how 
+In 
+There are at least two approaches to remedy these inefficiencies. 
+
+Modern network automation is typically implemented as a small or medium sized
+software program that answers questions about, or changes the state of, a 
+network. Conventional projects 
+A network automation project, loosely defined, is a small to medium sized 
+software program that answers questions about, or change the state of, 
+a network. Conventional practices isolate their development lifecycle
+from other projects. In part, the isolation is desireable for maximum flexibility in the 
+implementation. Developers aren't constrained by design limitations of previous
+projects, and can make the best descisions for the project at hand. That 
+flexibility, however, comes at a cost: effort duplication. 
+
+Effort duplication is most noticible in the data collection code required 
+by most network automation tools. Since projects are deveoped in isolation, 
+sharing data with other applications is an afterthought. Code, data,
+compute, maintenance, and programming effort is often duplicated. There are at least
+two approaches to remedy these inefficiencies. 
+
+The first enforces strict rules on the development lifecycle. New rules
+would require every project to consider every other project in its design phase. 
+The flexibility of an isolated project is sacrified for global design consistency.
+At best, project design complexity would increase on a linear scale, and 
+exponentially in the worst case.
+
+A more practical approach would adapt an architectural pattern to the to the 
+existing development lifecycle. The pattern would eliminate duplication
+efforts by consolidating homogenous logic to make the results available to
+client applications. Collectd is an instance of this pattern. 
+
+Collectd is responsible for collecting, storing, relating, and providing data retrieved 
+from network devices to client applications. It consolidates all data 
+collection logic, alleviating client applications of that responsibility.
+When a tool needs data, it simply requests it from collectd. 
+
+Collectd has numerous advantages over an isolated project's data collection approach. 
+Client applications no longer need collection code, making them easier to reason
+about, and faster to enhance, maintain, test, and document. Collection code will
+be more stable and robust, because writing collection code will be concentrated,
+instead of duplicated. Without the inefficiencies of a strict lifecycle approach, 
+applications will maintain maximum flexibility to satisfy business requirements.
+There will be fine grained control over SSH sessions to devices. Collectd will
+have a global perspective of collected data from all applications, and the 
+relationships between that data, which offers unique potential to answer 
+questions that have not yet been considered, or were thought impractical to 
+answer.
 \Blindtext[3][1]~\cite{Jurgens:2000,Jurgens:1995,Miede:2011,Kohm:2011,Apple:keynote:2010,Apple:numbers:2010,Apple:pages:2010}
 
 \section{Results}
