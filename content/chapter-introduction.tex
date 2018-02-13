@@ -41,21 +41,46 @@ tool can be described on a high level with these simple steps.
 \end{minipage}
 \end{figure}
 
-The inventory tool has logic that is easy to understand, and can serve as a 
-concrete example of the logic flow above. During step 1, the inventory tool
-uses NETCONF over SSH to run the show chassis hardware detail command, which
-provides the inventory data required. Step 2 is achieved by storing the inventory
-data in a relational database. Finally, in step 3, the tool answers user queries 
-A quick analysis of the inventory tool can 
-A concrete example can serve to illustrate the above logic flow.
-\section{Postcards: My Address}
+The general logic flow of homogenous applications is helpful when identifying 
+where that logic can be consolidated. The act of making a general logic flow 
+forces the author to generalize about application logic. The extent that logic 
+can be generalized is equivalent to the extent that it can be consolidated.
+Data collection is (arguably) the most generalized logic in the above flow. It
+follows, therefore, that consolidating its code would be the most beneficial.
+%Choosing the most generalized logic will help Maximizing logic consolidation will help speed up development
+%It therefore follows that the more logic that can be consolidated the most will have
+%the 
+%The inventory tool has logic that is easy to understand, and can serve as a 
+%concrete example of the logic flow above. During step 1, the inventory tool
+%uses the NETCONF equivalent of the \texttt{show chassis hardware detail} command to retrieve
+%the required inventory data. Step 2 is achieved by storing the inventory
+%data in a relational database. Finally, in step 3, the tool answers user queries 
+%A concrete example can serve to illustrate the above logic flow.
+\section{Benefits of Consolidated Data Collection}
 \label{sec:intro:address}
 
-\textbf{Ricardo Langner} \\
-Alfred-Schrapel-Str. 7 \\
-01307 Dresden \\
-Germany
+Data collection logic consolidation has many benefits that improve application 
+quality and delivery time. Some of them derive from a drastic simplification in
+the application logic. An application's code will be reduced almost entirely to
+business logic, which makes it easier to reason about. Other benefits are come
+from the shared collection data. In the best case, the shared data will save a 
+developer from writing code to collect it. In the worst case, new code must be
+added to the collection process. However, that collection code only needs to be
+written once for it to be easily available to all applications.
 
+Moreover collected data
+is shared between all applications. In the best case, an application developer won't even need to
+write code to collect data., because it will have been written already
+
+Consolidating data collection code makes it is easier to test. Unit tests
+(code that is written to test a unit of logic) only need to be written for the 
+NETCONF, SSH, and SQL code once. This will drastically improve testing quality,
+which ultimately improves application quality.
+
+The majority of logic consolidation benefits come from time savings.
+
+Most benefits of logic consolidation benefits come in the form of time savings.
+The majority of the benefits realized from logic consolidation 
 
 \section{Motivation and Problem Statement}
 \label{sec:intro:motivation}
